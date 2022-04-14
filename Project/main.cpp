@@ -17,26 +17,40 @@
 
 using namespace std;
 
-
+char *pathtemp;
 bool bigloop = true;
 bool smallloop = true;
 test testarray[40];
-char *path = R"(C:\Users\grafy\OneDrive\Dokumente\DHBW\Programmieren\C\Projekte\cpp.proj2\Project\dump_data)"; // Pfad zum ueberwachten Verzeichnis.
 
 
+string buildpath(WCHAR name[1], char **argv, DWORD len);
+
+string getPath(char **argv);
 
 // Define the function to be called when ctrl-c (SIGINT) is sent to process
 void signal_callback_handler(int signum) {
     cout << "Caught signal " << signum << endl;
     // Terminate program
-    onexit(path,testarray);
+    onexit(pathtemp, testarray);
     bigloop = false;
     smallloop = false;
     exit(signum);
 }
 
 
-int main() {
+int main(int argc, char **argv) {
+
+    char filledpath[1024];
+    string str = getPath(argv);
+    const char *path = str.data(); // Pfad zum ueberwachten Verzeichnis.
+    int len = str.length();
+    for (int i = 0; i < len; ++i) {
+        filledpath[i] = str.at(i);
+    }
+    pathtemp = filledpath;
+
+    cout << path << endl;
+
     signal(SIGINT, signal_callback_handler);
     // Handle fuer das Verzeichnis
     HANDLE file = CreateFile(path,
@@ -65,7 +79,7 @@ int main() {
 
     // es geht los
     printf("watching %s for changes...\n", path);
-    WCHAR FileName[10];
+
     while (bigloop) {
         DWORD result = WaitForSingleObject(overlapped.hEvent, 0);
 
@@ -79,29 +93,16 @@ int main() {
 
                 switch (event->Action) {
                     case FILE_ACTION_ADDED: {
-                        printf("       Added: %.*s\n", name_len, event->FileName);
-                        oneinlesen(path,testarray);
+                        string myfilefilepath = buildpath(event->FileName, argv,name_len);
+                        printf("\n %s\n", myfilefilepath.data());
+                        oneinlesen(myfilefilepath.data(), testarray);
                     }
                         break;
 
                     case FILE_ACTION_REMOVED: {
-                        printf("     Removed: %.*s\n", name_len, event->FileName);
-                        onentfernt(path,testarray);
-                    }
-                        break;
-
-                    case FILE_ACTION_MODIFIED: {
-                        wprintf(L"    Modified: %.*s\n", name_len, event->FileName);
-                    }
-                        break;
-
-                    case FILE_ACTION_RENAMED_OLD_NAME: {
-                        wprintf(L"Renamed from: %.*s\n", name_len, event->FileName);
-                    }
-                        break;
-
-                    case FILE_ACTION_RENAMED_NEW_NAME: {
-                        wprintf(L"          to: %.*s\n", name_len, event->FileName);
+                        string myfilefilepath = buildpath(event->FileName, argv, name_len);
+                        printf("\n %s\n", myfilefilepath.data());
+                        onentfernt(myfilefilepath.data(), testarray);
                     }
                         break;
 
@@ -131,4 +132,33 @@ int main() {
 
         // Do other loop stuff here...
     }
+
+}
+
+string buildpath(WCHAR name[1], char **argv, DWORD len) {
+    wstring your_wchar_in_ws(name);
+    //string your_wchar_in_str(your_wchar_in_ws.begin(), your_wchar_in_ws.end());
+    string mystring;
+    for (int i = 0; i < len; ++i) {
+        mystring.push_back(your_wchar_in_ws.at(i));
+    }
+    //const char* your_wchar_in_char =  your_wchar_in_str.c_str();
+    string myfilefilepath = getPath(argv) + "\\" + mystring;
+    return myfilefilepath;
+}
+
+string getPath(char **argv) {
+    string path(argv[0]);
+    uint8_t pathsize = path.size();
+    int i = pathsize - 1;
+    char c = path.at(i);
+    while (c != '\\') {
+
+        path.pop_back();
+        i--;
+        c = path.at(i);
+    }
+    string datei = {"dump_data"};
+    path = path + datei;
+    return path;
 }
