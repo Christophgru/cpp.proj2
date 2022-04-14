@@ -4,7 +4,8 @@
 //#todo: ali
 
 #include <cstdio>
+#include "testfileabbildung.cpp"
 
-bool einlesen() {
-    printf("eingelesen");
+void oneinlesen(char* pathueberwacherpfad,test testarray[40]) {
+    printf("eingelesen\n");
 }

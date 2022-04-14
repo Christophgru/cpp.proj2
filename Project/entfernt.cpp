@@ -3,7 +3,8 @@
 //
 
 #include <cstdio>
+#include "testfileabbildung.cpp"
 
-bool entfernt(){
-    printf("entfernt");
+void onentfernt(char* pathueberwacherpfad,test testarray[40]){
+    printf("entfernt\n");
 }
