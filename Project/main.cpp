@@ -21,7 +21,7 @@ using namespace std;
 bool bigloop = true;
 bool smallloop = true;
 test testarray[40];
-char *path = R"(C:\Users\chris\OneDrive\Dokumente\DHBW\Programmieren\c_cpp\kleines_rumprobiere\Projekt2\Project\dump_data)"; // Pfad zum ueberwachten Verzeichnis.
+char *path = R"(C:\Users\grafy\OneDrive\Dokumente\DHBW\Programmieren\C\Projekte\cpp.proj2\Project\dump_data)"; // Pfad zum ueberwachten Verzeichnis.
 
 
 
@@ -65,7 +65,7 @@ int main() {
 
     // es geht los
     printf("watching %s for changes...\n", path);
-
+    WCHAR FileName[10];
     while (bigloop) {
         DWORD result = WaitForSingleObject(overlapped.hEvent, 0);
 
@@ -79,13 +79,13 @@ int main() {
 
                 switch (event->Action) {
                     case FILE_ACTION_ADDED: {
-                        wprintf(L"       Added: %.*s\n", name_len, event->FileName);
+                        printf("       Added: %.*s\n", name_len, event->FileName);
                         oneinlesen(path,testarray);
                     }
                         break;
 
                     case FILE_ACTION_REMOVED: {
-                        wprintf(L"     Removed: %.*s\n", name_len, event->FileName);
+                        printf("     Removed: %.*s\n", name_len, event->FileName);
                         onentfernt(path,testarray);
                     }
                         break;
