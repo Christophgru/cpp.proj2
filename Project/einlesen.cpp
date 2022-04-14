@@ -8,6 +8,6 @@
 #include "allefileseinlesenali.cpp"
 
 void oneinlesen(char* pathueberwacherpfad,test testarray[40]) {
-    test frompath [40]=import_files_from_link(pathueberwacherpfad)
+    test *frompath =import_files_from_link(pathueberwacherpfad);
     printf("eingelesen\n");
 }
