@@ -10,6 +10,10 @@ class test {
     int ergebnis;
 
 public:
+    enum ergebnistypen {
+        positiv, negativ, abgelehnt
+    };
+
     void setergebnis(ergebnistypen writeergebnis){
         ergebnis=writeergebnis;
     }
@@ -30,7 +34,5 @@ public:
         test::ergebnis = ergebnis;
     }
 
-    enum ergebnistypen {
-        positiv, negativ, abgelehnt
-    };
+
 };
