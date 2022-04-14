@@ -17,13 +17,13 @@
 
 using namespace std;
 
-char* pathtemp;
+char *pathtemp;
 bool bigloop = true;
 bool smallloop = true;
 test testarray[40];
 
 
-string buildpath(WCHAR name[1], char **argv);
+string buildpath(WCHAR name[1], char **argv, DWORD len);
 
 string getPath(char **argv);
 
@@ -42,14 +42,14 @@ int main(int argc, char **argv) {
 
     char filledpath[1024];
     string str = getPath(argv);
-    const char *path =str.data(); // Pfad zum ueberwachten Verzeichnis.
+    const char *path = str.data(); // Pfad zum ueberwachten Verzeichnis.
     int len = str.length();
     for (int i = 0; i < len; ++i) {
         filledpath[i] = str.at(i);
     }
-    pathtemp= filledpath;
+    pathtemp = filledpath;
 
-    cout<<path<<endl;
+    cout << path << endl;
 
     signal(SIGINT, signal_callback_handler);
     // Handle fuer das Verzeichnis
@@ -93,14 +93,14 @@ int main(int argc, char **argv) {
 
                 switch (event->Action) {
                     case FILE_ACTION_ADDED: {
-                        string myfilefilepath = buildpath(event->FileName, argv);
+                        string myfilefilepath = buildpath(event->FileName, argv,name_len);
                         printf("\n %s\n", myfilefilepath.data());
                         oneinlesen(myfilefilepath.data(), testarray);
                     }
                         break;
 
                     case FILE_ACTION_REMOVED: {
-                        string myfilefilepath = buildpath(event->FileName, argv);
+                        string myfilefilepath = buildpath(event->FileName, argv, name_len);
                         printf("\n %s\n", myfilefilepath.data());
                         onentfernt(myfilefilepath.data(), testarray);
                     }
@@ -135,12 +135,15 @@ int main(int argc, char **argv) {
 
 }
 
-string buildpath(WCHAR name[1], char **argv) {
+string buildpath(WCHAR name[1], char **argv, DWORD len) {
     wstring your_wchar_in_ws(name);
-    string your_wchar_in_str(your_wchar_in_ws.begin(), your_wchar_in_ws.end()-2);//WTF
+    //string your_wchar_in_str(your_wchar_in_ws.begin(), your_wchar_in_ws.end());
+    string mystring;
+    for (int i = 0; i < len; ++i) {
+        mystring.push_back(your_wchar_in_ws.at(i));
+    }
     //const char* your_wchar_in_char =  your_wchar_in_str.c_str();
-    string myfilefilepath(pathtemp);
-    myfilefilepath = getPath(argv) + "\\" + your_wchar_in_str;
+    string myfilefilepath = getPath(argv) + "\\" + mystring;
     return myfilefilepath;
 }
 
