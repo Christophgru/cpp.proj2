@@ -5,6 +5,6 @@
 #include <cstdio>
 #include "testfileabbildung.cpp"
 
-void onentfernt(const char* pathueberwacherpfad,test testarray[40]){
+void onentfernt(const char *pathueberwacherpfad, test testarray[40]) {
     printf("entfernt\n");
 }
