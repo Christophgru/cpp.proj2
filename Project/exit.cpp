@@ -31,5 +31,9 @@ void onexit(char *pathueberwacherpfad, test testarray[40]) {
             count++;
         }
     }
-
+    std::ofstream outfile ("pos_test.txt");
+    for (int i = 0; i < sizeof(test)/ sizeof(pos_test[0]); ++i) {
+        outfile << pos_test[i].getEmail() << std::endl;
+    }
+    outfile.close();
 }
