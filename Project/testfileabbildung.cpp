@@ -8,6 +8,7 @@ class test {
     char email[40];
     char uhrzeit[5];//hh:mm
     int ergebnis;
+    char filename[255];
 
 public:
     enum ergebnistypen {
