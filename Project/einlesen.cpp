@@ -1,14 +1,32 @@
-//
-// Created by chris on 4/13/2022.
-//
-//#todo: ali
+#include "stdio.h"
+#include "string"
+#include <iostream>
+using namespace std;
+string dawdwa[2];
+void ausgabe(string email)
+{
+    std::cout<< email;
+}
+void einlesen(){
+    int counter;
+    char dateiname2[] = "musterdatei_testbuchung.txt";
+    char inhalt[] = "";
+    FILE *datei2;
+    datei2 = fopen(dateiname2, "r");
+    if(datei2 != NULL){
+        while(feof(datei2) == NULL){
+            fgets(inhalt, 50, datei2);
+            /*printf("%s", inhalt);*/
+            dawdwa[counter] = inhalt;
+            counter++;
+        }
+    }
+    for(int i=0; i<2;i++)
+    {
+        ausgabe(dawdwa[i]);
+    }
+}
 
-#include <cstdio>
-#include "testfileabbildung.cpp"
-#include "allefileseinlesenali.cpp"
-
-void oneinlesen(const char* pathueberwacherpfad,test testarray[40]) {
-    test fileseinlesen[40] ;
-    import_files_from_link(pathueberwacherpfad, fileseinlesen);
-    printf("eingelesen\n");
+int main(void){
+    einlesen();
 }
