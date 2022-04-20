@@ -12,8 +12,8 @@
 using u32 = uint_least32_t;
 using engine = std::mt19937;
 
-testabbildung pos_test[40];
 void onexit(char *pathueberwacherpfad, testabbildung testarray[40]) {
+    testabbildung pos_test[40];
     int count = 0;
     printf("exit\n");
     std::random_device os_seed;

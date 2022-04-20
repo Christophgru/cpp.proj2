@@ -26,4 +26,8 @@ public:
     const string &getEmail() const {
         return email;
     }
+
+    const string &getFilename() const {
+        return filename;
+    }
 };
