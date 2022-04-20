@@ -15,6 +15,15 @@ void oneinlesen(const char *pathueberwacherpfad, testabbildung testarray[40]) {
     //          sonst in array einfügen
 }
 
+bool checkAppointment(string time, testabbildung testarray[40]){
+    for(int i=0; i>40; i++){
+        if(time == testarray[i].getUhrzeit()){
+            return false;
+        }
+    }
+    return true;
+}
+
 bool check_time(string time) {
     char * time2 = new char [time.length()+1];
     strcpy(time2, time.c_str());

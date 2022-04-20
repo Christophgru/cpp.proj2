@@ -11,6 +11,7 @@ class testabbildung {
     int ergebnis;
     string filename;
 
+
 public:
     testabbildung(const char* email="",const char *uhrzeit="", const char *filename="") : email(email), uhrzeit(uhrzeit),
                                                                                filename(filename) {}
@@ -29,5 +30,8 @@ public:
 
     const string &getFilename() const {
         return filename;
+    }
+    const string &getUhrzeit() const {
+        return uhrzeit;
     }
 };

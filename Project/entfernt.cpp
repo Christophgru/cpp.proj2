@@ -13,6 +13,7 @@ void onentfernt(const char *pathueberwacherpfad, testabbildung testarray[40]) {
         if (testarray[i].getFilename() == pathueberwacherpfad) {
             testabbildung empty = testabbildung();
             testarray[i] = empty;
+            break;
         }
     }
 }
