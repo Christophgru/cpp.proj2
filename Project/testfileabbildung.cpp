@@ -1,39 +1,29 @@
 //
 // Created by chris on 4/14/2022.
 //
-
+#import <string>
+using namespace std;
 
 
 class testabbildung {
-    char email[40];
-    char uhrzeit[5];//hh:mm
+    string email;
+    string uhrzeit;//hh:mm
     int ergebnis;
-    char filename[255];
+    string filename;
 
 public:
+    testabbildung(const char* email="",const char *uhrzeit="", const char *filename="") : email(email), uhrzeit(uhrzeit),
+                                                                               filename(filename) {}
+
     enum ergebnistypen {
         positiv, negativ, abgelehnt
     };
-
-    void setergebnis(ergebnistypen writeergebnis){
-        ergebnis=writeergebnis;
-    }
-
-    const char *getEmail() const {
-        return email;
-    }
-
-    const char *getUhrzeit() const {
-        return uhrzeit;
-    }
-
-    int getErgebnis() const {
-        return ergebnis;
-    }
 
     void setErgebnis(int ergebnis) {
         testabbildung::ergebnis = ergebnis;
     }
 
-
+    const string &getEmail() const {
+        return email;
+    }
 };
