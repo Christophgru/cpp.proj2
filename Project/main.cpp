@@ -40,7 +40,6 @@ void signal_callback_handler(int signum) {
 
 
 int main(int argc, char **argv) {
-
     char filledpath[1024];
     string str = getPath(argv);
     const char *path = str.data(); // Pfad zum ueberwachten Verzeichnis.
@@ -94,7 +93,7 @@ int main(int argc, char **argv) {
 
                 switch (event->Action) {
                     case FILE_ACTION_ADDED: {
-                        string myfilefilepath = buildpath(event->FileName, argv,name_len);
+                        string myfilefilepath = buildpath(event->FileName, argv, name_len);
                         printf("\n %s\n", myfilefilepath.data());
                         oneinlesen(myfilefilepath.data(), testarray);
                     }
