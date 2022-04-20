@@ -57,9 +57,9 @@ void write() //final array in txt schreiben
         }
     }
 }
-int main() { //main zum testen vom programm
+/*int main() { //main zum testen vom programm
     full();
     sort();
     write();
     return 0;
-}
+}*/
