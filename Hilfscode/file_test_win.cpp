@@ -8,7 +8,7 @@
 #include <cassert>
 
 int main() {
-    char *path = "C:\\Users\\User\\CLionProjects\\cpp.proj2\\Test"; // Pfad zum ueberwachten Verzeichnis.
+    char *path = R"(C:\Users\grafy\OneDrive\Dokumente\DHBW\Programmieren\C\Projekte\cpp.proj2\Project\dump_data)"; // Pfad zum ueberwachten Verzeichnis.
 
     // Handle fuer das Verzeichnis
     HANDLE file = CreateFile(path,
