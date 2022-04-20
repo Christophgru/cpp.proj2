@@ -2,7 +2,7 @@
 #include "string"
 #include <iostream>
 using namespace std;
-string dawdwa[4];
+string dawdwa[2];
 void ausgabe(string email)
 {
     std::cout<< email;
@@ -30,4 +30,3 @@ void einlesen(){
 int main(void){
     einlesen();
 }
-
