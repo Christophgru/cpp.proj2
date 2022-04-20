@@ -7,8 +7,9 @@
 #include "testfileabbildung.cpp"
 #include "allefileseinlesenali.cpp"
 
-void oneinlesen(const char* pathueberwacherpfad,test testarray[40]) {
-    test fileseinlesen[40] ;
-    import_files_from_link(pathueberwacherpfad, fileseinlesen);
-    printf("eingelesen\n");
+void oneinlesen(const char *pathueberwacherpfad, testabbildung testarray[40]) {
+    testabbildung fileseinlesen[40];
+    testabbildung newtest= import_files_from_link(pathueberwacherpfad, fileseinlesen);
+
+
 }

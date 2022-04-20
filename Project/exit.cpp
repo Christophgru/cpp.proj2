@@ -5,8 +5,8 @@
 #include <cstdio>
 #include "testfileabbildung.cpp"
 
-void onexit(char* pathueberwacherpfad,test testarray[40]){
+void onexit(char* pathueberwacherpfad, testabbildung testarray[40]){
     printf("exit\n");
     //bsp zugriff
-    testarray[5].setergebnis(test::positiv);
+    testarray[5].setergebnis(testabbildung::positiv);
 }

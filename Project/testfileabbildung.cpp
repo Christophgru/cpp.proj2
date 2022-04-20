@@ -4,7 +4,7 @@
 
 
 
-class test {
+class testabbildung {
     char email[40];
     char uhrzeit[5];//hh:mm
     int ergebnis;
@@ -31,7 +31,7 @@ public:
     }
 
     void setErgebnis(int ergebnis) {
-        test::ergebnis = ergebnis;
+        testabbildung::ergebnis = ergebnis;
     }
 
 

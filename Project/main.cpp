@@ -20,7 +20,7 @@ using namespace std;
 char *pathtemp;
 bool bigloop = true;
 bool smallloop = true;
-test testarray[40];
+testabbildung testarray[40];
 
 
 string buildpath(WCHAR name[1], char **argv, DWORD len);
