@@ -3,6 +3,7 @@
 //
 #include <string>
 #import "testfileabbildung.cpp"
+#import "main.cpp"
 
 using namespace std;
 string dawdwa[2];
@@ -20,5 +21,6 @@ testabbildung import_files_from_link(const char *pathueberwacherpfad, testabbild
             counter++;
         }
     }
-
+    testabbildung new_file=testabbildung(dawdwa[0].data(),dawdwa[1].data(),pathueberwacherpfad);
+    return new_file;
 }
