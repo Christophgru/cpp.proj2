@@ -8,12 +8,10 @@
 #include <cassert>
 #include "einlesen.cpp"
 #include "entfernt.cpp"
-#include <unistd.h>
 #include <iostream>
 #include <cstdlib>
 #include <csignal>
 #include "exit.cpp"
-#include "testfileabbildung.cpp"
 #include <string>
 
 using namespace std;
@@ -40,6 +38,7 @@ void signal_callback_handler(int signum) {
 
 
 int main(int argc, char **argv) {
+
     char filledpath[1024];
     string str = getPath(argv);
     const char *path = str.data(); // Pfad zum ueberwachten Verzeichnis.
@@ -48,8 +47,6 @@ int main(int argc, char **argv) {
         filledpath[i] = str.at(i);
     }
     pathtemp = filledpath;
-
-    cout << path << endl;
 
     signal(SIGINT, signal_callback_handler);
     // Handle fuer das Verzeichnis
@@ -148,15 +145,15 @@ string buildpath(WCHAR name[1], char **argv, DWORD len) {
 }
 
 string getPath(char **argv) {
+
     string path(argv[0]);
     uint8_t pathsize = path.size();
     int i = pathsize - 1;
     char c = path.at(i);
     while (c != '\\') {
-
         path.pop_back();
         i--;
-        c = path.at(i);
+        c = path[i];
     }
     string datei = {"dump_data"};
     path = path + datei;

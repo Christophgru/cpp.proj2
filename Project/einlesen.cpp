@@ -3,7 +3,6 @@
 //
 
 #include <cstdio>
-#include "testfileabbildung.cpp"
 #include "allefileseinlesenali.cpp"
 
 bool check_time(const string time);

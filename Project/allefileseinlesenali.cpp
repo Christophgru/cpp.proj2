@@ -2,8 +2,7 @@
 // Created by chris on 4/14/2022.
 //
 #include <string>
-#import "testfileabbildung.cpp"
-#import "main.cpp"
+#include "testfileabbildung.cpp"
 #include <iostream>
 #include <fstream>
 using namespace std;
