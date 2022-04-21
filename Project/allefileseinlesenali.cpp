@@ -20,6 +20,9 @@ testabbildung import_files_from_link(const char *pathueberwacherpfad) {
         getline(file, zeile);
         tmp[i] = zeile;
         i++;
+        if(i>=2){
+            break;
+        }
     }
     testabbildung new_file=testabbildung(tmp[0].data(),tmp[1].data(),pathueberwacherpfad);
     return new_file;
