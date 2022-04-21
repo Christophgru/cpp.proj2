@@ -4,23 +4,23 @@
 #include <string>
 #import "testfileabbildung.cpp"
 #import "main.cpp"
-
+#include <iostream>
+#include <fstream>
 using namespace std;
-string dawdwa[2];
-testabbildung import_files_from_link(const char *pathueberwacherpfad, testabbildung arrayrueckgabe[40]) {
+testabbildung import_files_from_link(const char *pathueberwacherpfad) {
     //todo: Ali : Lese Files aus, erstelle für jedes file ein testabbildung objekt, pack die ins array, gebe array zurück
     //befüllen
-    int counter;
-    char inhalt[] = "";
-    FILE *datei2;
-    datei2 = fopen(pathueberwacherpfad, "r");
-    if (datei2 != NULL) {
-        while (feof(datei2) == NULL) {
-            fgets(inhalt, 50, datei2);
-            dawdwa[counter] = inhalt;
-            counter++;
-        }
+
+    string tmp[2];
+    int i=0;
+    fstream file;
+    file.open(pathueberwacherpfad, ios::in);
+    string zeile;
+    while(!file.eof()){
+        getline(file, zeile);
+        tmp[i] = zeile;
+        i++;
     }
-    testabbildung new_file=testabbildung(dawdwa[0].data(),dawdwa[1].data(),pathueberwacherpfad);
+    testabbildung new_file=testabbildung(tmp[0].data(),tmp[1].data(),pathueberwacherpfad);
     return new_file;
 }
