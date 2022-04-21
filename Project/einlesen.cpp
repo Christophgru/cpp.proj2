@@ -6,7 +6,7 @@
 #include "testfileabbildung.cpp"
 #include "allefileseinlesenali.cpp"
 
-bool check_time(const string &time);
+bool check_time(const string time);
 
 void oneinlesen(const char *pathueberwacherpfad, testabbildung testarray[40]) {
     testabbildung newtest = import_files_from_link(pathueberwacherpfad);
@@ -18,7 +18,7 @@ void oneinlesen(const char *pathueberwacherpfad, testabbildung testarray[40]) {
         for (int i = 0; i < 40; ++i) {
             if (testarray[i].getFilename() == "") {
                 testarray[i] = newtest;
-                printf("Buchung von %s angekommen", newtest.getEmail().data());
+                printf("Buchung von %s gespeichert", newtest.getEmail().data());
                 break;
             }
         }
