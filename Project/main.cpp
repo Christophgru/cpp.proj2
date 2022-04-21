@@ -14,6 +14,7 @@
 #include <csignal>
 #include "exit.cpp"
 #include "testfileabbildung.cpp"
+#include <string>
 
 using namespace std;
 
