@@ -3,7 +3,10 @@
 //
 
 #include <cstdio>
+#include <string>
 #include "allefileseinlesenali.cpp"
+using namespace std;
+
 
 bool check_time(const string time);
 

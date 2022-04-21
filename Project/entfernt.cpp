@@ -3,6 +3,8 @@
 //
 
 #include <cstdio>
+#import "testfileabbildung.cpp"
+
 
 void onentfernt(const char *pathueberwacherpfad, testabbildung testarray[40]) {
     printf("entfernt\n");
