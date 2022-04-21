@@ -29,7 +29,6 @@ void onexit(char *pathueberwacherpfad, testabbildung testarray[40]) {
             count++;
         }
     }
-    testarray[0].setErgebnis(testabbildung::positiv);
     pos_test[0] = testarray[0];
     std::ofstream outfile ("pos_test.txt");
     for (int i = 0; i < 40; ++i) {
@@ -37,5 +36,4 @@ void onexit(char *pathueberwacherpfad, testabbildung testarray[40]) {
     }
     outfile.close();
 
-    //todo: steve absprache mit yangraf
 }

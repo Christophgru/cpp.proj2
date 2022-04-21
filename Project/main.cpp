@@ -148,14 +148,19 @@ string getPath(char **argv) {
 
     string path(argv[0]);
     uint8_t pathsize = path.size();
-    int i = pathsize - 1;
-    char c = path.at(i);
-    while (c != '\\') {
-        path.pop_back();
-        i--;
-        c = path[i];
-    }
     string datei = {"dump_data"};
-    path = path + datei;
-    return path;
+    char c;
+    for(int q = pathsize -1; q>0; q--)
+    {
+        c = path[q];
+        if(c == '\\')
+        {
+            path.append(datei);
+            return path;
+        }
+        path.pop_back();
+    }
+    return datei;
+
+
 }

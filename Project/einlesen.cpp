@@ -8,11 +8,8 @@
 bool check_time(const string time);
 
 void oneinlesen(const char *pathueberwacherpfad, testabbildung testarray[40]) {
+    cout << "\n";
     testabbildung newtest = import_files_from_link(pathueberwacherpfad);
-    //todo: newtest auf uhrzeit prüfen unter Umständen ablehnen
-    //todo: email prüfen
-    //todo: wenn ein test fehlschlägt Eintrag "Abgelehnt/Anfrage ungültig" im file vornehmen
-    //          sonst in array einfügen
     if (check_time(newtest.getUhrzeit())) {
         for (int i = 0; i < 40; ++i) {
             if (testarray[i].getFilename() == "") {
@@ -21,6 +18,9 @@ void oneinlesen(const char *pathueberwacherpfad, testabbildung testarray[40]) {
                 break;
             }
         }
+    }
+    else{
+        newtest.setErgebnis(testabbildung::abgelehnt);
     }
 }
 
