@@ -104,7 +104,7 @@ int main(int argc, char **argv) {
                         break;
 
                     default: {
-                        printf("Unknown action!\n");
+                        //printf("Unknown action!\n");
                     }
                         break;
                 }

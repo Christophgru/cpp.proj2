@@ -30,31 +30,29 @@ void onexit(char *pathueberwacherpfad, testabbildung testarray[40]) {
             count++;
         }
     }
-    std::ofstream outfile ("pos_test.txt");
-
+    int anzpos=0;
     for (int i = 0; i < 40; ++i) {
         testabbildung tmp = testarray[i];
-        if (tmp.getEmail() != "") {
+        if (!tmp.getEmail().empty()) {
 
             ofstream myfile(tmp.getFilename());
             if (myfile.is_open()) {
                 myfile << tmp.getEmail() << "\n";
                 myfile << tmp.getUhrzeit() << "\n";
                 if (tmp.getErgebnis() == testabbildung::negativ) { myfile << "Ergebnis: negativ\n"; }
-                if (tmp.getErgebnis() == testabbildung::positiv) { myfile << "Ergebnis: positiv\n"; }
+                if (tmp.getErgebnis() == testabbildung::positiv) { myfile << "Ergebnis: positiv\n"; anzpos++;}
                 if (tmp.getErgebnis() == testabbildung::tba) { myfile << "Ergebnis: noch nicht getestet\n"; }
                 myfile.close();
-            }else cout << "Fehler";
+            } else cout << "Fehler";
         }
     }
 
 
-std::ofstream outfile("pos_test.txt");
-for (
-int i = 0;
-i < 40; ++i) {
-  outfile << pos_test[i].getEmail()<<std::endl;
-}
-outfile.close();
+    std::ofstream outfile("pos_test.txt");
+    outfile << "Heute gab es "<< anzpos<<" positive Tests.\n"<<"Hier sind die Emailadressen der positiv getesteten\n";
+    for (int i = 0; i < 40; ++i) {
+        outfile << pos_test[i].getEmail() << std::endl;
+    }
+    outfile.close();
 
 }
