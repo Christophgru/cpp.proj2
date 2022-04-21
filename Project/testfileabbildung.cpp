@@ -2,6 +2,7 @@
 // Created by chris on 4/14/2022.
 //
 #import <string>
+
 using namespace std;
 
 
@@ -10,15 +11,15 @@ class testabbildung {
     string uhrzeit;//hh:mm
     int ergebnis;
     string filename;
-
-
 public:
-    testabbildung(const char* email="",const char *uhrzeit="", const char *filename="") : email(email), uhrzeit(uhrzeit),
-                                                                               filename(filename) {}
-
     enum ergebnistypen {
-        positiv, negativ, abgelehnt
+        tba, positiv, negativ, abgelehnt
     };
+
+    testabbildung(const char *email = "", const char *uhrzeit = "", const char *filename = "", int ergebnis = tba)
+            : email(email), uhrzeit(uhrzeit),
+              filename(filename), ergebnis(ergebnis) {}
+
 
     void setErgebnis(int ergebnis) {
         testabbildung::ergebnis = ergebnis;
@@ -31,7 +32,12 @@ public:
     const string &getFilename() const {
         return filename;
     }
+
     const string &getUhrzeit() const {
         return uhrzeit;
+    }
+
+    int getErgebnis() const {
+        return ergebnis;
     }
 };
