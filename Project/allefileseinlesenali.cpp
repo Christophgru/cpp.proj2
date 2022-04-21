@@ -4,7 +4,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include "testfileabbildung.cpp"
+#import "testfileabbildung.cpp"
 
 using namespace std;
 testabbildung import_files_from_link(const char *pathueberwacherpfad) {
