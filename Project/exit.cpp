@@ -7,7 +7,6 @@
 #include <random>
 #include <iostream>
 #include <fstream>
-#include "testfileabbildung.cpp"
 
 using u32 = uint_least32_t;
 using engine = std::mt19937;
