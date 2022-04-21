@@ -2,9 +2,10 @@
 // Created by chris on 4/13/2022.
 //
 
-#include <cstdio>
-#include "testfileabbildung.cpp"
+#include <string>
 #include "allefileseinlesenali.cpp"
+using namespace std;
+
 
 bool check_time(const string time);
 

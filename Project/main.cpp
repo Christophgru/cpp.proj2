@@ -8,12 +8,10 @@
 #include <cassert>
 #include "einlesen.cpp"
 #include "entfernt.cpp"
-#include <unistd.h>
 #include <iostream>
 #include <cstdlib>
 #include <csignal>
 #include "exit.cpp"
-#include "testfileabbildung.cpp"
 #include <string>
 
 using namespace std;

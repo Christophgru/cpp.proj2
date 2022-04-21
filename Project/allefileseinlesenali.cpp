@@ -2,10 +2,10 @@
 // Created by chris on 4/14/2022.
 //
 #include <string>
-#import "testfileabbildung.cpp"
-#import "main.cpp"
 #include <iostream>
 #include <fstream>
+#import "testfileabbildung.cpp"
+
 using namespace std;
 testabbildung import_files_from_link(const char *pathueberwacherpfad) {
     //todo: Ali : Lese Files aus, erstelle für jedes file ein testabbildung objekt, pack die ins array, gebe array zurück
