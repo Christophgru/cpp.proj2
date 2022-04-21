@@ -19,8 +19,8 @@ public:
         positiv, negativ, abgelehnt
     };
 
-    void setErgebnis(int ergebnis) {
-        testabbildung::ergebnis = ergebnis;
+    void setErgebnis(int ergebnis_) {
+        testabbildung::ergebnis = ergebnis_;
     }
 
     const string &getEmail() const {
