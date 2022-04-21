@@ -32,7 +32,7 @@ void onexit(char *pathueberwacherpfad, testabbildung testarray[40]) {
         }
     }
     std::ofstream outfile ("pos_test.txt");
-    for (int i = 0; i < sizeof(testabbildung)/ sizeof(pos_test[0]); ++i) {
+    for (int i = 0; i < 3; ++i) {
         outfile << pos_test[i].getEmail() << std::endl;
     }
     outfile.close();

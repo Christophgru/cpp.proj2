@@ -13,6 +13,7 @@
 #include <cstdlib>
 #include <csignal>
 #include "exit.cpp"
+#include "string.h"
 #include "testfileabbildung.cpp"
 #include "Sort_save.cpp"
 
@@ -48,7 +49,6 @@ int main(int argc, char **argv) {
         filledpath[i] = str.at(i);
     }
     pathtemp = filledpath;
-
     signal(SIGINT, signal_callback_handler);
     // Handle fuer das Verzeichnis
     HANDLE file = CreateFile(path,
