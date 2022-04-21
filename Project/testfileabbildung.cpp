@@ -13,7 +13,7 @@ class testabbildung {
     string filename;
 public:
     enum ergebnistypen {
-        tba, positiv, negativ
+        tba, positiv, negativ, abgelehnt
     };
 
     void setErgebnis(int ergebnis_) {
