@@ -13,9 +13,8 @@
 #include <cstdlib>
 #include <csignal>
 #include "exit.cpp"
-#include "string.h"
 #include "testfileabbildung.cpp"
-#include "Sort_save.cpp"
+#include <string>
 
 using namespace std;
 
@@ -49,6 +48,9 @@ int main(int argc, char **argv) {
         filledpath[i] = str.at(i);
     }
     pathtemp = filledpath;
+
+    cout << path << endl;
+
     signal(SIGINT, signal_callback_handler);
     // Handle fuer das Verzeichnis
     HANDLE file = CreateFile(path,
@@ -92,14 +94,14 @@ int main(int argc, char **argv) {
                 switch (event->Action) {
                     case FILE_ACTION_ADDED: {
                         string myfilefilepath = buildpath(event->FileName, argv, name_len);
-                        cout << "\n" <<  myfilefilepath.data() << endl;
+                        printf("\n %s\n", myfilefilepath.data());
                         oneinlesen(myfilefilepath.data(), testarray);
                     }
                         break;
 
                     case FILE_ACTION_REMOVED: {
                         string myfilefilepath = buildpath(event->FileName, argv, name_len);
-                        cout << "\n" <<  myfilefilepath.data() << endl;
+                        printf("\n %s\n", myfilefilepath.data());
                         onentfernt(myfilefilepath.data(), testarray);
                     }
                         break;

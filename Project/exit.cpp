@@ -22,7 +22,7 @@ void onexit(char *pathueberwacherpfad, testabbildung testarray[40]) {
     engine generator(seed);
     std::uniform_int_distribution<u32> distribute(0, 1);
 
-    for (int i = 0; i < sizeof(testabbildung) / sizeof(testarray[0]); ++i) { //test oder testarray??
+    for (int i = 0; i < 40; ++i) { //test oder testarray??
         if (distribute(generator)) {
             testarray[i].setErgebnis(testabbildung::negativ);
         } else {
@@ -32,7 +32,7 @@ void onexit(char *pathueberwacherpfad, testabbildung testarray[40]) {
         }
     }
     std::ofstream outfile ("pos_test.txt");
-    for (int i = 0; i < 3; ++i) {
+    for (int i = 0; i < 40; ++i) {
         outfile << pos_test[i].getEmail() << std::endl;
     }
     outfile.close();
