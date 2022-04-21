@@ -1,3 +1,0 @@
-max.mustermann@mustermann.de
-13:45
-[positiv/negativ/abgelehnt]

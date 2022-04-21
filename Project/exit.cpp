@@ -3,11 +3,10 @@
 //
 
 #include <cstdio>
-#include <cstdlib>
 #include <random>
 #include <iostream>
 #include <fstream>
-#import "testfileabbildung.cpp"
+
 
 using u32 = uint_least32_t;
 using engine = std::mt19937;
@@ -31,6 +30,8 @@ void onexit(char *pathueberwacherpfad, testabbildung testarray[40]) {
             count++;
         }
     }
+    std::ofstream outfile ("pos_test.txt");
+
     for (int i = 0; i < 40; ++i) {
         testabbildung tmp = testarray[i];
         if (tmp.getEmail() != "") {
@@ -52,15 +53,8 @@ std::ofstream outfile("pos_test.txt");
 for (
 int i = 0;
 i < 40; ++i) {
-outfile << pos_test[i].
-
-getEmail()
-
-<<
-std::endl;
+  outfile << pos_test[i].getEmail()<<std::endl;
 }
-outfile.
-
-close();
+outfile.close();
 
 }

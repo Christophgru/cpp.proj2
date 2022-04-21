@@ -8,8 +8,6 @@
 
 using namespace std;
 testabbildung import_files_from_link(const char *pathueberwacherpfad) {
-    //todo: Ali : Lese Files aus, erstelle für jedes file ein testabbildung objekt, pack die ins array, gebe array zurück
-    //befüllen
 
     string tmp[2];
     int i=0;
