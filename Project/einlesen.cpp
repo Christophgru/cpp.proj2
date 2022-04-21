@@ -6,7 +6,7 @@
 #include "testfileabbildung.cpp"
 #include "allefileseinlesenali.cpp"
 
-bool check_time(const string &time);
+bool check_time(string time);
 
 void oneinlesen(const char *pathueberwacherpfad, testabbildung testarray[40]) {
     testabbildung newtest = import_files_from_link(pathueberwacherpfad);

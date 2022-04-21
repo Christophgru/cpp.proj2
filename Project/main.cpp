@@ -49,8 +49,6 @@ int main(int argc, char **argv) {
     }
     pathtemp = filledpath;
 
-    cout << path << endl;
-
     signal(SIGINT, signal_callback_handler);
     // Handle fuer das Verzeichnis
     HANDLE file = CreateFile(path,
@@ -94,14 +92,14 @@ int main(int argc, char **argv) {
                 switch (event->Action) {
                     case FILE_ACTION_ADDED: {
                         string myfilefilepath = buildpath(event->FileName, argv, name_len);
-                        printf("\n %s\n", myfilefilepath.data());
+                        cout << "\n" <<  myfilefilepath.data() << endl;
                         oneinlesen(myfilefilepath.data(), testarray);
                     }
                         break;
 
                     case FILE_ACTION_REMOVED: {
                         string myfilefilepath = buildpath(event->FileName, argv, name_len);
-                        printf("\n %s\n", myfilefilepath.data());
+                        cout << "\n" <<  myfilefilepath.data() << endl;
                         onentfernt(myfilefilepath.data(), testarray);
                     }
                         break;
