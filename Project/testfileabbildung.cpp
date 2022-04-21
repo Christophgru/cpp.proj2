@@ -10,14 +10,15 @@ class testabbildung {
     string uhrzeit;//hh:mm
     int ergebnis;
     string filename;
+    enum ergebnistypen {
+        tba,positiv, negativ, abgelehnt
+    };
 
 public:
-    testabbildung(const char* email="",const char *uhrzeit="", const char *filename="") : email(email), uhrzeit(uhrzeit),
-                                                                               filename(filename) {}
+    testabbildung(const char* email="",const char *uhrzeit="", const char *filename="", int ergebnis=tba) : email(email), uhrzeit(uhrzeit),
+                                                                               filename(filename),ergebnis(ergebnis) {}
 
-    enum ergebnistypen {
-        positiv, negativ, abgelehnt
-    };
+
 
     void setErgebnis(int ergebnis) {
         testabbildung::ergebnis = ergebnis;
