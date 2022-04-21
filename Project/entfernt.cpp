@@ -12,6 +12,7 @@ void onentfernt(const char *pathueberwacherpfad, testabbildung testarray[40]) {
     for (int i = 0; i < sizeof(testarray) / sizeof(testarray[0]); ++i) {
         if (testarray[i].getFilename() == pathueberwacherpfad) {
             testabbildung empty = testabbildung();
+            printf("Buchung %s wurde entfernt",testarray[i].getEmail().data());
             testarray[i] = empty;
         }
     }

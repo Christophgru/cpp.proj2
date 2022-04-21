@@ -7,7 +7,7 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
-testabbildung import_files_from_link(const char *pathueberwacherpfad, testabbildung arrayrueckgabe[40]) {
+testabbildung import_files_from_link(const char *pathueberwacherpfad) {
     //todo: Ali : Lese Files aus, erstelle für jedes file ein testabbildung objekt, pack die ins array, gebe array zurück
     //befüllen
 
